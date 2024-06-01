@@ -55,12 +55,3 @@ result2 = makes_twenty(2,8)
 #     old_macdonald('macdonald') --> MacDonald
 # Note: `'macdonald'.capitalize()` returns `'Macdonald'`
 
-def old_mac(name):
-      for i in name:
-            if(i == 0 and i == 4):
-                  i.upper()
-                  pass
-      return name
-            
-result3 = old_mac('macdonalds')
-print(result3)
