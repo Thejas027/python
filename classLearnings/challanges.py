@@ -55,3 +55,57 @@ result2 = makes_twenty(2,8)
 #     old_macdonald('macdonald') --> MacDonald
 # Note: `'macdonald'.capitalize()` returns `'Macdonald'`
 
+def old_macdonald(name):
+      first_letter = name[0]
+      in_between = name[1:3]
+      fourth_letter = name[3]
+      rest = name[4:]
+      
+      return first_letter.upper() + in_between + fourth_letter.upper() + rest
+
+# res = old_macdonald('macdonalds')
+# res = old_macdonald('thejas')
+# print(res)
+
+
+# ----another method
+
+def old_macdonald2(name):
+      first_half = name[:3]
+      second_half = name[3:]
+      
+      return first_half.capitalize() + second_half.capitalize()
+
+
+# res = old_macdonald('macdonalds')
+# print(res)
+
+
+#### MASTER YODA: Given a sentence, return a sentence with the words reversed
+
+#     master_yoda('I am home') --> 'home am I'
+#     master_yoda('We are ready') --> 'ready are We'
+
+def reverse_string(text):
+      word_list = text.split()
+      reversed_text_list = word_list[::-1]
+      
+      return ' '.join(reversed_text_list)
+output = reverse_string('i am home')
+print(output)
+
+
+#### ALMOST THERE: Given an integer n, return True if n is within 10 of either 100 or 200
+
+#     almost_there(90) --> True
+#     almost_there(104) --> True
+#     almost_there(150) --> False
+#     almost_there(209) --> True
+
+def almost_there(num):
+      return (abs(100-num) <= 10 ) or (abs(200-num) <= 10)
+
+number = int(input("enter the number to check the range : "))
+
+op = almost_there(number)
+print(op)
