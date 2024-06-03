@@ -48,7 +48,7 @@ result2 = makes_twenty(2,8)
 # print(result2)
 
 
-###################
+###################   LEVEL - ONE problems 
 
 #### OLD MACDONALD: Write a function that capitalizes the first and fourth letters of a name
 
@@ -91,8 +91,8 @@ def reverse_string(text):
       reversed_text_list = word_list[::-1]
       
       return ' '.join(reversed_text_list)
-output = reverse_string('i am home')
-print(output)
+# output = reverse_string('i am home')
+# print(output)
 
 
 #### ALMOST THERE: Given an integer n, return True if n is within 10 of either 100 or 200
@@ -102,10 +102,67 @@ print(output)
 #     almost_there(150) --> False
 #     almost_there(209) --> True
 
-def almost_there(num):
-      return (abs(100-num) <= 10 ) or (abs(200-num) <= 10)
+# def almost_there(num):
+      # return (abs(100-num) <= 10 ) or (abs(200-num) <= 10)
 
-number = int(input("enter the number to check the range : "))
+# number = int(input("enter the number to check the range : "))
 
-op = almost_there(number)
-print(op)
+# op = almost_there(number)
+# print(op)
+
+############# LEVEL-2 
+
+##### 
+# Given a list of ints, return True if the array contains a 3 next to a 3 somewhere.
+#     has_33([1, 3, 3]) → True
+#     has_33([1, 3, 1, 3]) → False
+#     has_33([3, 1, 3]) → False
+
+def has_three(my_list):
+      # Iterate through the list up to the third-to-last element
+      for i in range(len(my_list) - 2):
+      # Check if current element and the next two elements are all 3
+            if my_list[i] == 3 and my_list[i + 1] == 3:
+                  return True
+      return False
+
+# Example usage
+my_list = [1, 1, 3]
+op = has_three(my_list)
+# print(op)  
+
+
+#### PAPER DOLL: Given a string, return a string where for every character in the original there are three characters
+#     paper_doll('Hello') --> 'HHHeeellllllooo'
+#     paper_doll('Mississippi') --> 'MMMiiissssssiiippppppiii'
+
+def paper_doll(text):
+      repeated_text = ''
+      for char in text:
+            repeated_text  += char * 3
+      return repeated_text      
+
+# text_op = paper_doll('Thejas')
+# print(text_op)
+
+
+
+#### BLACKJACK: Given three integers between 1 and 11, if their sum is less than or equal to 21, return their sum. If their sum exceeds 21 *and* there's an eleven, reduce the total sum by 10. Finally, if the sum (even after adjustment) exceeds 21, return 'BUST'
+#     blackjack(5,6,7) --> 18
+#     blackjack(9,9,9) --> 'BUST'
+#     blackjack(9,9,11) --> 19
+
+def blackjack(my_list):
+      for i in my_list:
+            
+            if(sum(my_list) <= 21):
+                  return sum(my_list)                  
+                        
+            elif 11 in my_list and sum(my_list) <= 31:
+                  value = sum(my_list) - 10
+                  return value
+      return 'BUST'
+
+my_list = [5,6,7]
+blackjack_result = blackjack(my_list)
+print(blackjack_result)
