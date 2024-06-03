@@ -164,5 +164,84 @@ def blackjack(my_list):
       return 'BUST'
 
 my_list = [5,6,7]
-blackjack_result = blackjack(my_list)
-print(blackjack_result)
+# blackjack_result = blackjack(my_list)
+# print(blackjack_result)
+
+#### SUMMER OF '69: Return the sum of the numbers in the array, except ignore sections of numbers starting with a 6 and extending to the next 9 (every 6 will be followed by at least one 9). Return 0 for no numbers.
+
+#     summer_69([1,3,5]) --> 9
+#     summer_69([4, 5, 6, 7, 8, 9]) --> 9
+#     summer_69([2, 1, 6, 9, 11]) --> 14
+
+def summer_69(my_list):
+      total =0
+      add = True
+      
+      for num in my_list:
+            while add :
+                  if num != 6:
+                        total += num
+                        break
+                  else:
+                        add = False
+
+            while not add :
+                  if num != 9:
+                        break
+                  else:
+                        add = True
+                        break
+      return total
+
+# summer_op = summer_69([2,1,6,9,11])
+# print(summer_op)
+
+############### challanges problems
+
+#### SPY GAME: Write a function that takes in a list of integers and returns True if it contains 007 in order
+
+#      spy_game([1,2,4,0,0,7,5]) --> True
+#      spy_game([1,0,2,4,0,5,7]) --> True
+#      spy_game([1,7,2,0,4,5,0]) --> False
+
+
+def spy_game(my_list):
+      value = [0,0,7,'x']
+      for num in my_list:
+            if num == value[0]:
+                  value.pop(0)
+      return len(value) == 1
+
+# spygame_op =  spy_game([1,7,2,0,4,5,0])
+# print(spygame_op)
+
+
+#### COUNT PRIMES: Write a function that returns the *number* of prime numbers that exist up to and including a given number
+#     count_primes(100) --> 25
+
+# By convention, 0 and 1 are not prime.
+
+def count_prime(num):
+      
+      if num < 2:
+            return 0
+      
+      # to store all the prime number 
+      prime = [2]
+      x = 3 
+      
+      while x <= num:
+            for y in range(3,x,2):
+                  if x%y == 0:
+                        x+=2
+                        break 
+            else:
+                  prime.append(x)
+                  x += 2
+                  
+      print(prime)
+      return len(prime)
+
+res_prime = count_prime(100)
+print(res_prime)
+
