@@ -37,3 +37,34 @@ my_circle = circle()
 
 # my_circle.radius = 100
 print(my_circle.get_circumference(100))
+
+
+
+class Book():
+      
+      def __init__(self,title,author,page):
+            
+            self.title = title
+            self.author = author
+            self.page = page
+            
+      def __str__(self):
+            return f"{self.title} by {self.author}"
+
+      def __len__(self):
+            return self.page
+
+      def __del__(self):
+            print("The book object has been deleted")
+      
+b = Book('Python rocks','Jose',200)
+
+# print(b)
+result = str(b)
+# print(result)
+
+page_res = len(b)
+print(page_res)
+
+del b   # used to delete the created object 
+# print(b)  # it gives op as 'not defined'
