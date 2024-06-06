@@ -21,8 +21,6 @@ class Card:
       def __str__(self):
             return self.rank + " of " + self.suit
 
-# two_hearts = Card('Hearts','Two')
-# print(two_hearts)
 
 '''
 Deck class returns a card class object not a normal python data type 
@@ -48,14 +46,7 @@ class Deck:
       
 
 
-# new_deck = Deck()
-# print(new_deck.all_cards[-1])
 
-# new_deck.shuffle()
-# print(new_deck.all_cards[-1])
-
-# mycard = new_deck.deal_one()
-# print(mycard)
 
 ############ Players class 
 '''
@@ -89,20 +80,14 @@ class Player():
       def __str__(self):
             return f'Player {self.name} has {len(self.all_cards)} cards.'
             
-# new_player = player('Thejas')
-# print(new_player)
 
-# new_player.add_cards(mycard)
-# print(new_player)
-
-# new_player.add_cards([mycard,mycard,mycard])
-# print(new_player)
 
 
 ''''
       Game logic
 '''
 
+############ 
 #Game setup 
 
 player_one = Player('One')
@@ -157,5 +142,40 @@ while game_on:
       -----> The rule used here is,
             --> If there is a tie each player needs to draw a additional of 5 cards 
             --> A player looses if they dont have at least 5 cards to play the war 
-                  --> this logic can be edited as 
+                  --> this logic can be edited as required 
       '''
+      
+      at_war = True
+      
+      while at_war:
+            if player_one_cards[-1].value > player_two_cards[-1].value:
+                  player_one.add_cards(player_one_cards)
+                  player_one.add_cards(player_two_cards)
+                  
+                  at_war = False
+            
+            elif player_one_cards[-1].value < player_two_cards[-1].value:
+                  player_two.add_cards(player_one_cards)
+                  player_two.add_cards(player_two_cards)
+                  
+                  at_war = False
+            else:
+                  print('WAR!!')
+                  
+                  if len(player_one.all_cards) < 5:
+                        print('Player One unable to declare the war.Due to shortage of cards')
+                        print('Player Two WINS!! the game')
+                        game_on = False
+                        break
+                  elif len(player_two.all_cards) < 5:
+                        print('Player Two unable to declare the war>Due to shortage of cards')
+                        print('Player One WINS!! the game ')
+                        game_on = False
+                        break 
+                  else:
+                        for num in range(5):
+                              player_one_cards.append(player_one.remove_one())
+                              player_two_cards.append(player_two.remove_one())
+
+
+
