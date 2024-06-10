@@ -27,11 +27,40 @@ def generate_fib(n):
             yield first 
             first,second = second, first+ second
             
-for fib in generate_fib(5):
-      print(fib )
+# for fib in generate_fib(5):
+#       print(fib )
 
 
 '''
 Generators questions 
 '''
+
+#  To generate a square number 
+
+def generate_square(n):
+      for i in range(n):
+            yield i**2
+
+
+# n = int(input('Enter the n value to generate the squares of a number :'))
+
+# for squares in generate_square(n):
+#       print(squares)
+      
+
+# To generate a random number between a given range 
+
+# import random
+
+# def generate_random(low,high,n):
+#       for i in range(n):
+#             yield random.randint(low,high)
+
+
+# low = int(input("Enter a starting range of low value : "))
+# high = int(input("Enter a last value of range :  "))
+# n = int(input("Enter the n value(For how many times this should run) : "))
+# for i in generate_random(low,high,n):
+#       print(i)
+
 
