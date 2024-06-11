@@ -141,14 +141,106 @@ my_datetime = my_datetime.replace(year=2025)
       Python debugger 
 '''
 
-import pdb
+# import pdb
 
-x = [1,2,3]
-y = 10 
-z = 20
+# x = [1,2,3]
+# y = 10 
+# z = 20
 
-print(y+z)
+# print(y+z)
 
-pdb.set_trace()
+# pdb.set_trace()
 
-print(x+y)
+# print(x+y)
+
+'''
+Regular expressions 
+'''
+import re
+
+address = 'Hey I live in Mysore, and 080-123-4567 its my number'
+
+phone =  re.search( r'(\d{3})-(\d{3})-(\d{4})',address) # Here it shows how re and quantifiers are used 
+# print(phone)
+# print(phone.group())
+# print(phone.group(1)) 
+
+# usage of or operator in Regular expression 
+
+text = 'The cat is here'
+result = re.search('cat|dog',text)
+# print(result)
+
+result = re.search('.at','The cat in the hat sat there.')
+
+
+''' 
+      Time your python code
+            --> Timeit module  
+'''
+
+def func_one(n):
+      return [str(num) for num in range(n)]
+
+print(func_one(10))
+
+def fun_two(n):
+      return list(map(str,range(n)))
+
+print(fun_two(20))
+
+# both the above two functions give the same result to know which is efficient --> USE timeit module 
+
+import time 
+#  CURRENT TIME BEFORE 
+start_time = time.time()
+# RUN CODE 
+result = func_one(100000)
+# CURRENT TIME AFTER RUNNING CODE 
+end_time = time.time()
+#ELAPSED TIME 
+elapsed_time = end_time - start_time
+print(f'The diff between start and end time of a time module -  1 : {elapsed_time}')
+
+################################for function two 
+#  CURRENT TIME BEFORE 
+start_time = time.time()
+# RUN CODE 
+result = fun_two(1000)
+# CURRENT TIME AFTER RUNNING CODE 
+end_time = time.time()
+#ELAPSED TIME 
+elapsed_time2 = end_time - start_time
+print(f'The diff between start and end time of a time module - 1 : {elapsed_time2}')
+
+
+####### USING TIMEIT 
+
+import timeit
+
+timeit.timeit
+
+stmt = ''' 
+func_one(100)
+'''
+
+setup = '''
+def func_one(n):
+      return [str(num) for num in range (n)]
+'''
+
+elapsed_timeit = timeit.timeit(stmt,setup,number=1000)
+print( "Elapsed time for function - 1 :  {}".format(elapsed_timeit))
+
+# For function 2 
+
+stmt2 = '''
+fun_two(100)
+'''
+setup2 = '''
+def fun_two(n):
+      return list(map(str,range(n)))
+'''
+
+elapsed_timeit2 = timeit.timeit(stmt2,setup2,number=1000)
+print( "Elapsed time for function - 2 :  {}".format(elapsed_timeit2))
