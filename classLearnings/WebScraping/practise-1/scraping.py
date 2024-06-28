@@ -14,7 +14,7 @@ image_url = 'https:' + computer['src']
 # Download the image
 
 img_data = requests.get(image_url).content
-with open('Deep_Blue.jpg', 'wb') as handler:
+with open('Deep_Blue.jpg', 'wb') as handler:   # 'wb' --> write in binary 
       handler.write(img_data)
 
 print("Image downloaded as 'Deep_Blue.jpg'")

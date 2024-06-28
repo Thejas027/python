@@ -244,3 +244,9 @@ def fun_two(n):
 
 elapsed_timeit2 = timeit.timeit(stmt2,setup2,number=1000)
 print( "Elapsed time for function - 2 :  {}".format(elapsed_timeit2))
+
+
+'''
+Zipping and unzipping of files 
+'''
+
